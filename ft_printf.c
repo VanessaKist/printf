@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 15:51:06 by coder             #+#    #+#             */
-/*   Updated: 2022/06/10 20:13:18 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/14 20:23:19 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int	ft_printf(const char *str, ...)
 	long int i;
 	char *s;
 	unsigned int	u;
+	long int	p;
+//	char *d;
 	
 	va_list arg;
 	va_start(arg, str);
@@ -79,7 +81,7 @@ int	ft_printf(const char *str, ...)
 					len++;
 					i = i * -1;
 				}
-				ft_putnbr_fd(i, 1);
+				ft_putbase(i, "0123456789");
 				len = len + ft_intlen(i, 10);
 			}
 			else if (*str == 'c' || *str == '%')
@@ -125,11 +127,22 @@ int	ft_printf(const char *str, ...)
 				ft_putbase(u, "0123456789ABCDEF");
 				len = len + ft_intlen(u, 16);
 			}
-			/* else if (*str == 'p')
+			else if (*str == 'p')
 			{
-				s = va_arg(arg, unsigned int);
-				
-			} */
+				p = va_arg(arg, unsigned long);
+				if (!p)
+				{
+					s = "(nil)";
+					write(1, s, ft_strlen(s));
+					len = len + ft_strlen(s);
+				}
+				else
+				{
+					write(1, "0x", 2);
+					ft_putbase(p, "0123456789abcdef");
+					len = len + ft_intlen(p, 16) + 2;
+				}	
+			}
 		}	
 		str++;
 	}
