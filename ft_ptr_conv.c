@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_conv.c                                      :+:      :+:    :+:   */
+/*   ft_ptr_conv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 22:20:01 by coder             #+#    #+#             */
-/*   Updated: 2022/06/15 18:06:02 by coder            ###   ########.fr       */
+/*   Created: 2022/06/15 17:29:30 by coder             #+#    #+#             */
+/*   Updated: 2022/06/15 18:12:13 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,23 @@
 void	ft_putbase(unsigned long num, char *base);
 int		ft_intlen(unsigned long i, int base);
 
-int ft_int_conv(int len, va_list arg)
+int		ft_ptr_conv(int len, va_list arg)
 {
-	long int i;
+	unsigned long	p;
+	char *s;
 	
-	i = va_arg(arg, int);
-    if (i < 0)
-    {
-    	write(1, "-", 1);
-    	len++;
-    	i = i * -1;
-    }
-    ft_putbase(i, "0123456789");
-    len = len + ft_intlen(i, 10);
-	return (len);	
+	p = va_arg(arg, unsigned long);
+	if (!p)
+	{
+		s = "(nil)";
+		write(1, s, ft_strlen(s));
+		len = len + ft_strlen(s);
+	}
+	else
+	{
+		write(1, "0x", 2);
+		ft_putbase(p, "0123456789abcdef");
+		len = len + ft_intlen(p, 16) + 2;
+	}
+	return (len);
 }

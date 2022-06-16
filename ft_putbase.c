@@ -6,12 +6,12 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:27:13 by coder             #+#    #+#             */
-/*   Updated: 2022/06/09 20:33:16 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/15 00:02:12 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
-
+# include "inc/ft_printf.h"
+/* 
 size_t	ft_strlen(const char *s)
 {
 	size_t	len;
@@ -26,7 +26,7 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-
+ */
 void	ft_putbase(unsigned long num, char *base)
 {
 	size_t	len_base;

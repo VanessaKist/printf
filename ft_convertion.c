@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_conv.c                                      :+:      :+:    :+:   */
+/*   ft_convertion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 22:20:01 by coder             #+#    #+#             */
-/*   Updated: 2022/06/15 18:06:02 by coder            ###   ########.fr       */
+/*   Created: 2022/06/16 22:09:54 by coder             #+#    #+#             */
+/*   Updated: 2022/06/16 22:32:59 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/ft_printf.h"
+# include "inc/ft_printf.h"
 
-void	ft_putbase(unsigned long num, char *base);
-int		ft_intlen(unsigned long i, int base);
-
-int ft_int_conv(int len, va_list arg)
+int ft_convertion(const char *str, int len, va_list arg)
 {
-	long int i;
-	
-	i = va_arg(arg, int);
-    if (i < 0)
-    {
-    	write(1, "-", 1);
-    	len++;
-    	i = i * -1;
-    }
-    ft_putbase(i, "0123456789");
-    len = len + ft_intlen(i, 10);
+	if (*str == 'd' || *str == 'i')	
+		len = ft_int_conv(len, arg);
+	else if (*str == 'c' || *str == '%')	
+		len = ft_char_conv(str, len, arg);
+	else if (*str == 's')
+		len = ft_str_conv(len, arg);
+	else if (*str == 'u'|| *str == 'x' || *str == 'X')
+		len = ft_unsg_conv(str, len, arg);
+	else if (*str == 'p')
+		len = ft_ptr_conv(len, arg);		
 	return (len);	
 }
