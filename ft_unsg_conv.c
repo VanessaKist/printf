@@ -6,19 +6,16 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 16:48:31 by coder             #+#    #+#             */
-/*   Updated: 2022/06/15 17:07:30 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/17 21:15:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/ft_printf.h"
 
-void	ft_putbase(unsigned long num, char *base);
-int		ft_intlen(unsigned long i, int base);
-
 int	ft_unsg_conv(const char *str, int len, va_list arg)
 {
 	unsigned int	u;
-	
+
 	if (*str == 'u')
 	{
 		u = va_arg(arg, unsigned int);

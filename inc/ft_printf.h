@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 22:02:05 by coder             #+#    #+#             */
-/*   Updated: 2022/06/16 22:31:00 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/17 20:53:12 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putbase(unsigned long num, char *base);
+int		ft_intlen(unsigned long i, int base);
 size_t	ft_strlen(const char *s);
 int		ft_int_conv(int len, va_list arg);
 int		ft_printf(const char *str, ...);
-int		ft_convertion(const char *str, int len, va_list arg);
-int 	ft_char_conv(const char *str, int len, va_list arg);
+int		ft_char_conv(const char *str, int len, va_list arg);
 int		ft_str_conv(int len, va_list arg);
 int		ft_unsg_conv(const char *str, int len, va_list arg);
 int		ft_ptr_conv(int len, va_list arg);

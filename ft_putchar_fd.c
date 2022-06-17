@@ -6,11 +6,11 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:30:32 by coder             #+#    #+#             */
-/*   Updated: 2022/04/25 20:39:25 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/17 20:46:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
+#include "inc/ft_printf.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

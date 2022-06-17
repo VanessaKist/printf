@@ -6,20 +6,17 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:29:30 by coder             #+#    #+#             */
-/*   Updated: 2022/06/15 18:12:13 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/17 21:08:29 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/ft_printf.h"
 
-void	ft_putbase(unsigned long num, char *base);
-int		ft_intlen(unsigned long i, int base);
-
-int		ft_ptr_conv(int len, va_list arg)
+int	ft_ptr_conv(int len, va_list arg)
 {
 	unsigned long	p;
-	char *s;
-	
+	char			*s;
+
 	p = va_arg(arg, unsigned long);
 	if (!p)
 	{

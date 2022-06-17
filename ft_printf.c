@@ -6,23 +6,26 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 15:51:06 by coder             #+#    #+#             */
-/*   Updated: 2022/06/16 22:38:21 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/17 21:06:48 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/ft_printf.h"
-#include <stdio.h>
 
-void	ft_putbase(unsigned long num, char *base);
-int		ft_intlen(unsigned long i, int base);
-void	ft_putchar_fd(char c, int fd);
-size_t	ft_strlen(const char *s);
-int		ft_convertion(const char *str, int len, va_list arg);
-int		ft_int_conv(int len, va_list arg);
-int		ft_char_conv(const char *str, int len, va_list arg);
-int		ft_str_conv(int len, va_list arg);
-int		ft_unsg_conv(const char *str, int len, va_list arg);
-int		ft_ptr_conv(int len, va_list arg);
+int	ft_convertion(const char *str, int len, va_list arg)
+{
+	if (*str == 'd' || *str == 'i')
+		len = ft_int_conv(len, arg);
+	else if (*str == 'c' || *str == '%')
+		len = ft_char_conv(str, len, arg);
+	else if (*str == 's')
+		len = ft_str_conv(len, arg);
+	else if (*str == 'u' || *str == 'x' || *str == 'X')
+		len = ft_unsg_conv(str, len, arg);
+	else if (*str == 'p')
+		len = ft_ptr_conv(len, arg);
+	return (len);
+}
 
 int	ft_printf(const char *str, ...)
 {
@@ -48,13 +51,3 @@ int	ft_printf(const char *str, ...)
 	va_end(arg);
 	return (len);
 }
-
-/* int main (void)
-{
-	int i;
-	int d;
-	i = ft_printf("Hello %i\n", 44);
-	d = printf("Hello %i\n", 44);
-	printf("ft_printf:%i\norig_printf:%i\n", i, d);
-	return (0);
-} */
