@@ -6,11 +6,11 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 15:51:06 by coder             #+#    #+#             */
-/*   Updated: 2022/06/17 20:47:28 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/19 16:53:38 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {

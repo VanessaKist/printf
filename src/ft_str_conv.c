@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char_conv.c                                     :+:      :+:    :+:   */
+/*   ft_str_conv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 22:34:38 by coder             #+#    #+#             */
-/*   Updated: 2022/06/17 20:58:58 by coder            ###   ########.fr       */
+/*   Created: 2022/06/08 22:58:22 by coder             #+#    #+#             */
+/*   Updated: 2022/06/19 16:53:31 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/ft_printf.h"
+#include "../inc/ft_printf.h"
 
-int	ft_char_conv(const char *str, int len, va_list arg)
+int	ft_str_conv(int len, va_list arg)
 {
-	long int	i;
+	char	*s;
 
-	if (*str == '%')
-	{
-		write(1, "%", 1);
-		len++;
-	}
-	else
-	{
-		i = va_arg(arg, int);
-		write(1, &i, 1);
-		len++;
-	}
+	s = va_arg(arg, char *);
+	if (!s)
+		s = "(null)";
+	write(1, s, ft_strlen(s));
+	len = len + ft_strlen(s);
 	return (len);
 }

@@ -6,11 +6,11 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 16:48:31 by coder             #+#    #+#             */
-/*   Updated: 2022/06/17 21:15:35 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/19 16:53:43 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 int	ft_unsg_conv(const char *str, int len, va_list arg)
 {

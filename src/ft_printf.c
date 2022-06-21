@@ -6,11 +6,11 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 15:51:06 by coder             #+#    #+#             */
-/*   Updated: 2022/06/17 21:06:48 by coder            ###   ########.fr       */
+/*   Updated: 2022/06/19 19:07:52 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 int	ft_convertion(const char *str, int len, va_list arg)
 {
